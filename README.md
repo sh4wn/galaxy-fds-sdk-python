@@ -7,7 +7,7 @@ Galaxy FDS SDK Python封装了FDS的API，用户安装SDK后，可以非常容�
 
 安装`pyhon-pip`后，执行`pip install galaxy-fds-sdk`即可。
 
-也可以在requirements.txt中写上`galaxy-fds-sdk>=1.0`。
+也可以在requirements.txt中写上`galaxy-fds-sdk>=1.2.9`。
 
 ## 使用
 
@@ -17,7 +17,7 @@ Galaxy FDS SDK Python封装了FDS的API，用户安装SDK后，可以非常容�
 
 ```
 from fds import GalaxyFDSClient, GalaxyFDSClientException
-client = GalaxyFDSClient("5341725076926", "vhlqXBAsWMbRIKZx+UBfPQ==")
+client = GalaxyFDSClient("ACCESS_KEY", "SECRET_KEY")
 
 try:
   client.create_bucket("bucket_name")
