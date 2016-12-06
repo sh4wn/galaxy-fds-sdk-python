@@ -1,7 +1,7 @@
 
 ## 简介
 
-基于小米[Galaxy FDS SDK Python](https://github.com/XiaoMi/galaxy-fds-sdk-python)修改,支持Python3.x
+基于小米[Galaxy FDS SDK Python](https://github.com/XiaoMi/galaxy-fds-sdk-python)修改,支持Python3.x(不兼容Python2.x)。
 
 ## 安装
 
