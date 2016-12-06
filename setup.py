@@ -1,13 +1,13 @@
+# -*- coding: utf-8 -*-
 try:
   from setuptools import setup
-  setup()
 except ImportError:
   from distutils.core import setup
 
 setup(
   name='galaxy-fds-sdk-python3',
   version='0.1',
-  author='Xiangyang Li',
+  author='http://xiangyang.li',
   author_email='wo@xiangyang.li',
   include_package_data=True,
   install_requires=['requests>=2.6.0', 'argcomplete>=1.4.1'],
