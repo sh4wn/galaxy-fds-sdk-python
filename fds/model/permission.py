@@ -38,7 +38,7 @@ class Permission(object):
   FULL_CONTROL = 0xff
 
   def __init__(self, value):
-    if isinstance(value, (str, unicode)):
+    if isinstance(value, str):
       value = value.strip().upper()
       if value == 'READ':
         self._value = Permission.READ
@@ -121,9 +121,9 @@ class Owner(dict):
   def from_json(json):
     if json != '':
       owner = Owner()
-      if 'id' in json.keys():
+      if 'id' in list(json.keys()):
         owner.id = json['id']
-      if 'displayName' in json.keys():
+      if 'displayName' in list(json.keys()):
         owner.display_name = json['displayName']
       return owner
     return None

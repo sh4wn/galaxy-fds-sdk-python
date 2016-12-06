@@ -1,5 +1,5 @@
-from fds_object_summary import FDSObjectSummary
-from permission import Owner
+from .fds_object_summary import FDSObjectSummary
+from .permission import Owner
 
 class FDSObjectListing(dict):
   '''
@@ -17,7 +17,7 @@ class FDSObjectListing(dict):
       self._objects.append(summary)
 
   def __str__(self):
-      return str(map(lambda x : x.object_name, self._objects))
+      return str([x.object_name for x in self._objects])
 
   @property
   def prefix(self):

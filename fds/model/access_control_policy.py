@@ -8,9 +8,9 @@ class AccessControlPolicy(dict):
     Construct access control policy object from json.
     '''
     if json:
-      if 'owner' in json.keys():
+      if 'owner' in list(json.keys()):
         self.owner = json['owner']
-      if 'accessControlList' in json.keys():
+      if 'accessControlList' in list(json.keys()):
         self.access_control_list = json['accessControlList']
 
   @property

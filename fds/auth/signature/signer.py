@@ -4,8 +4,8 @@ import hmac
 from email.utils import formatdate
 from hashlib import sha1
 from requests.auth import AuthBase
-from urllib import unquote
-from urlparse import urlparse
+from urllib.parse import unquote
+from urllib.parse import urlparse
 
 from fds.auth.common import Common
 from fds.model.subresource import SubResource
@@ -27,7 +27,7 @@ class Signer(AuthBase):
     signature = self._sign_to_base64(request.method, request.headers,
       unquote(request.url), self._app_secret)
     request.headers[Common.AUTHORIZATION] = 'Galaxy-V2 %s:%s' % (
-      self._app_key, signature)
+      self._app_key, signature.decode('utf-8'))
     return request
 
   def _sign(self, method, headers, url, app_secret):
@@ -40,7 +40,7 @@ class Signer(AuthBase):
     :return: The signed result, aka the signature
     '''
     string_to_sign = self._construct_string_to_sign(method, headers, url)
-    digest = hmac.new(app_secret, string_to_sign, digestmod=sha1)
+    digest = hmac.new(app_secret.encode('utf-8'), string_to_sign.encode('utf-8'), digestmod=sha1)
     return digest.digest()
 
   def _sign_to_base64(self, method, headers, url, app_secret):
@@ -147,6 +147,6 @@ class Signer(AuthBase):
     for query in query_args:
       key = query.split('=')[0]
       if key == Common.EXPIRES:
-        return query.split('=')[1]
+        return int(query.split('=')[1])
     return 0
 
